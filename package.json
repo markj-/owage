@@ -1,0 +1,7 @@
+{
+  "name": "Owage",
+  "version": "0.0.1",
+  "dependencies": {
+    "minpubsub": "0.0.1"
+  }
+}

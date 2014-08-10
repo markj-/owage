@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+    <form class="transaction-form">
+      <ul>
+        <li>
+          <label for="transaction-owner">Who</label>
+          <select name="transaction-owner" id="transaction-owner">
+            <option value="mark">Mark</option>
+            <option value="emillie">Emillie</option>
+          </select>
+        </li>
+        <li>
+          <label for="transaction-description">Description</label>
+          <textarea name="transaction-description" id="transaction-description" cols="30" rows="10"></textarea>
+        </li>
+        <li>
+          <label for="transaction-location">Location</label>
+          <input type="text" name="transaction-location" id="transaction-location">
+        </li>
+        <li>
+          <label for="transaction-cost">Cost</label>
+          <input type="text" name="transaction-cost" id="transaction-cost">
+        </li>
+        <li>
+          <button type="submit" class="add-transaction">Add</button>
+        </li>
+      </ul>
+    </form>
+
+    <div class="transaction-list"></div>
+
+    <script type="tmpl" id="transaction-list-tmpl">
+      {{#numTransactions}}
+      <table>
+        <thead>
+          <tr>
+            <th>Who</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#transactions}}
+          <tr>
+            <td>{{owner}}</td>
+            <td>{{description}}</td>
+            <td>{{location}}</td>
+            <td>{{cost}}</td>
+          </tr>
+          {{/transactions}}
+        </tbody>
+      </table>
+      {{/numTransactions}}
+      {{^numTransactions}}
+        No transactions found
+      {{/numTransactions}}
+    </script>
+    <script src="bower_components/mustache/mustache.js"></script>
+    <script src="node_modules/minpubsub/minpubsub.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
